@@ -22,13 +22,13 @@ router.post('/signup',function(req,res)
     console.log('New signup process');
     var newSignup = new loginModel();
 
-    newSignup.name = req.body.name;
-    newSignup.emailID = req.body.emailID;
-    newSignup.password = req.body.password; 
-    newSignup.DOB = req.body.DOB; 
-    newSignup.gender = req.body.gender; 
+    newSignup.name = req.body.uname;
+    newSignup.emailID = req.body.email;
+    newSignup.password = req.body.psw; 
+    newSignup.dob = req.body.dob; 
+    //newSignup.gender = req.body.gender; 
 
-    var query = {"emailID": req.body.emailID};
+    var query = {"emailID": req.body.email};
     
     loginModel.find(query,function(err,data)
     {
@@ -60,7 +60,7 @@ router.post('/signup',function(req,res)
                         //res.json(data);
                         res.send('Signup successful!');
                     }
-                    //mongoose.connection.close();
+                    mongoose.connection.close();
                 });                                 
             } 
         }

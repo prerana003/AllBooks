@@ -16,12 +16,19 @@ app.listen(port,function(){
 app.use(bodyParser.urlencoded({extended: true})); //parses the text as url encoded data
 app.use(bodyParser.json()); //parses the text as json
 
+app.use(express.static('./public'));
+
 app.use('/api',api);
 
+
+app.get('/login',(req,res) => {
+    res.sendFile(path.join(__dirname, '../views/login.html'));
+});
+
 app.get('/signup',(req,res) => {
-    res.sendFile(path.join(__dirname, '../reg.html'));
-}); 
+    res.sendFile(path.join(__dirname, '../views/reg.html'));
+});
 
 app.get('*',(req,res) => {
-    res.sendFile(path.join(__dirname, '../login.html'));
+    res.sendFile(path.join(__dirname, '../views/index.html'));
 }); 
