@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>E-commerce</title>
+        <meta content="text/html; charset=utf-8" />
+        <style>
+            body
+            {
+                margin: 0px;
+                background-color: rgb(183, 220, 221);                 
+            }
+            .regnform
+            {  
+                width: 300px;       
+                padding: 50px;
+                margin-left: 500px;
+                margin-top: 50px;
+                background-color: rgb(173, 128, 216);  
+                border: 1px solid;
+                border-color: rgb(186, 125, 243);               
+            }
+            label
+            {
+                padding: 5px;
+                margin: 10px;
+                font-size: 16px;
+            }
+            input
+            {
+                width: 250px;
+                background-color:lavender;
+                padding: 5px;
+                margin: 10px;
+                font-size: 17px;                
+            }
+            #regnsubmit
+            {
+                width: auto;
+                border-radius: 10px;
+                margin-top: 20px;
+                margin-left: 80px;
+                padding: 10px;
+                padding-left: 30px;
+                padding-right: 30px;
+                background-color:rgb(51, 102, 255);
+            }
+        </style>
+    </head>
+
+    <body>
+        <form action="" method="POST" class="regnform"> 
+
+            <span>
+                <h4>REGISTER</h4>
+            </span>
+            <hr>            
+
+            <input type="text" placeholder="Name" name="cname"> <br>
+            <input type="email" placeholder="Email ID" name="emailID"> <br>
+            <input type="password" placeholder="Password" name="pw"> <br>
+            <label>Date of Birth:</label>
+            <input type="date" name="DOB"> <br>
+            <label>Gender:</label>
+            <input type="text" name="gender"> <br>
+
+            <input type="submit" value="Register" id="regnsubmit"> <br>
+        
+        </form>
+    </body>
+</html>
