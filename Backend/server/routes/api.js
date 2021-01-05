@@ -6,7 +6,7 @@ const bodyparser = require('body-parser');
 const loginModel = require('../models/loginSchema');
 
 //connecting to database
-const db = "mongodb+srv://preranahazra98:<Mini2003>@cluster0.fhhyl.mongodb.net/<OnlineBookstore>?retryWrites=true&w=majority";
+const db = "mongodb+srv://preranahazra98:P1998@cluster0.fhhyl.mongodb.net/OnlineBookstore?retryWrites=true&w=majority";
 mongoose.Promise = global.Promise;
 mongoose.connect(db, {useNewUrlParser : true, useUnifiedTopology: true}, function(error){
     if (error)
