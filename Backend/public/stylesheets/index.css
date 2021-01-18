@@ -6,6 +6,7 @@
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
+	background: linear-gradient(white 45%, #c7dffa, rgba(0, 0, 0, 0.2));
 }
 
 button {
@@ -14,10 +15,15 @@ button {
 
 header {
     display: flex;
-    width: 90%;
+	position: fixed;
+	top: 0;
+	/* left: 5%; */
+	z-index: 1;
+    width: 100%;
     height: 10vh;
     margin: auto;
     align-items: center;
+	background: linear-gradient(white 50%, rgba(255, 255, 255, 0.75));
 }
 
 .logo-cont, .nav-links {
@@ -26,6 +32,7 @@ header {
 
 .logo-cont {
     flex: 1;
+	margin-left: 2.5%;
 }
 
 .logo-cont img {
@@ -42,9 +49,17 @@ nav {
 }
 
 .nav-link {
-    color: #5f5f79;
+    /* color: #5f5f79; */
+	color: rgba(0, 0, 0, 0.75);
     font-size: 19px;
     text-decoration: none;
+}
+
+.nav-link:hover,
+.nav-link:active {
+	background: black;
+	color: white;
+	/* padding: 5%; */
 }
 
 .logo {
@@ -63,6 +78,7 @@ nav {
 .intro {
     flex: 1;
     position: absolute;
+	z-index: 0;
     top: 60%;
     left: 55%;
     transform: translate(-5%, -50%);
@@ -83,6 +99,7 @@ nav {
 
 .cover {
     flex: 1;
+	margin-top: 5.5%;
 }
 
 .cover img {
@@ -104,4 +121,31 @@ nav {
     font-size: 16px;
     cursor: pointer;
     margin-top: 15px;
+}
+
+.act-select:hover,
+.act-select:active {
+    background: #2626d3;
+}
+
+footer {
+	background: black;
+	width: 90%;
+	margin: 32px auto 0 auto;
+	padding: 16px;
+}
+
+.footer__links {
+	text-align: center;
+}
+
+.footer__link {
+	display: inline-block;
+	margin: 10px 30px;
+}
+
+.footer__link a {
+	text-decoration: none;
+	color: white;
+	font-size: 17px;
 }

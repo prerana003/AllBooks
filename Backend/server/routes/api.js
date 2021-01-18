@@ -40,7 +40,7 @@ router.post('/signup',function(req,res)
         }    
         else
         {
-            //console.log(data);
+            // console.log(data);
             len = data.length;
             if (len > 0)
 
