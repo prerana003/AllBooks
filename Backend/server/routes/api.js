@@ -41,7 +41,7 @@ router.post('/signup',function(req,res)
         }    
         else
         {
-            // console.log(data);
+            console.log(data);
             len = data.length;
             if (len > 0)
 
@@ -57,11 +57,13 @@ router.post('/signup',function(req,res)
                     }  
                     else
                     {
+						console.log(SignupData);
                         res.status(200);
                         //res.json(data);
                         // res.send('Signup successful!');
 						console.log('Signup successful!');
-						res.sendFile(path.join(__dirname, '../../views/user.html'));
+						// res.sendFile(path.join(__dirname, '../../views/user.html'));
+						res.render('user', { username: SignupData.name })
                     }
                     mongoose.connection.close();
                 });                                 

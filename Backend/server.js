@@ -16,6 +16,8 @@ app.listen(port,function(){
 app.use(bodyParser.urlencoded({extended: true})); //parses the text as url encoded data
 app.use(bodyParser.json()); //parses the text as json
 
+app.set('view engine', 'ejs'); //setup to make express find .ejs files
+
 app.use(express.static(__dirname + '/public'));
 // app.use(express.static('./public'));
 
@@ -28,13 +30,13 @@ app.get('/user', (req, res) => {
 });
 
 app.get('/login',(req,res) => {
-    res.sendFile(path.join(__dirname, './views/login.html'));
+	res.render('login');
 });
 
 app.get('/signup',(req,res) => {
-    res.sendFile(path.join(__dirname, './views/reg.html'));
+	res.render('reg');
 });
 
 app.get('*',(req,res) => {
-    res.sendFile(path.join(__dirname, './views/index.html'));
+	res.render('index');
 }); 
