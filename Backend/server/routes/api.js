@@ -41,7 +41,7 @@ router.post('/signup',function(req,res)
         }    
         else
         {
-            console.log(data);
+            // console.log(data);
             len = data.length;
             if (len > 0)
 
@@ -57,7 +57,7 @@ router.post('/signup',function(req,res)
                     }  
                     else
                     {
-						console.log(SignupData);
+						// console.log(SignupData);
                         res.status(200);
                         //res.json(data);
                         // res.send('Signup successful!');
