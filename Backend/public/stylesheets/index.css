@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
-	background: linear-gradient(white 45%, #c7dffa, rgba(0, 0, 0, 0.2));
+	background: linear-gradient(white 25%, #c7dffa 75%, rgba(0, 0, 0, 0.2));
 }
 
 button {

@@ -2,6 +2,7 @@ const express=require('express');
 const router=express.Router();
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
+const path = require('path');
 
 const loginModel = require('../models/loginSchema');
 
@@ -58,7 +59,9 @@ router.post('/signup',function(req,res)
                     {
                         res.status(200);
                         //res.json(data);
-                        res.send('Signup successful!');
+                        // res.send('Signup successful!');
+						console.log('Signup successful!');
+						res.sendFile(path.join(__dirname, '../../views/user.html'));
                     }
                     mongoose.connection.close();
                 });                                 

@@ -22,6 +22,11 @@ app.use(express.static(__dirname + '/public'));
 app.use('/api',api);
 
 
+
+app.get('/user', (req, res) => {
+	res.sendFile(path.join(__dirname, './views/user.html'));
+});
+
 app.get('/login',(req,res) => {
     res.sendFile(path.join(__dirname, './views/login.html'));
 });
