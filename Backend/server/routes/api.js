@@ -9,67 +9,59 @@ const loginModel = require('../models/loginSchema');
 //connecting to database
 const db = "mongodb+srv://preranahazra98:P1998@cluster0.fhhyl.mongodb.net/OnlineBookstore?retryWrites=true&w=majority";
 mongoose.Promise = global.Promise;
-mongoose.connect(db, {useNewUrlParser : true, useUnifiedTopology: true}, function(error){
+mongoose.connect(db, {
+	useNewUrlParser : true, 
+	useUnifiedTopology: true,
+	useCreateIndex: true}, function(error){
     if (error)
         console.log("Error!" + error);
+	else
+		console.log('Connected to DB');
 });
 
-
-var len = 0;
-
 //signup api
-router.post('/signup',function(req,res)
-{
-    console.log('New signup process');
-    var newSignup = new loginModel();
+router.post('/signup', (req, res) => {
+	// console.log('New signup process', req.body);
+	
+    var newSignup = new loginModel({
+		name: req.body.uname,
+		emailID: req.body.email,
+		// password: req.body.psw,
+		dob: req.body.dob
+	});
+	
+	loginModel.register(newSignup, req.body.psw, (err, user) => {
+		if(err){
+			// console.log("Error", err.message);
+			res.redirect('/signup');
+		}
+		loginModel.authenticate()(newSignup.name, req.body.psw, (err, result) => {
+			if(err){
+				// console.log("Auth error", err);
+				res.redirect('/');
+			}
+			// console.log('SignUp successful', user);
+			res.render('user', { username: user.name });
+		});
+	});
+});
 
-    newSignup.name = req.body.uname;
-    newSignup.emailID = req.body.email;
-    newSignup.password = req.body.psw; 
-    newSignup.dob = req.body.dob; 
-    //newSignup.gender = req.body.gender; 
+router.post('/login', (req, res) => {
+	// console.log('In login POST', req.body);
+	
+	loginModel.authenticate()(req.body.uname, req.body.psw, (err, result) => {
+		if(err){
+			// console.log("Error", err);
+			res.redirect('/');
+		}
+		// console.log("Logged In!", result);
+		res.render('user', { username: result.name });
+	});
+});
 
-    var query = {"emailID": req.body.email};
-    
-    loginModel.find(query,function(err,data)
-    {
-        if (err)
-        {
-            console.log(err);
-            res.status(500);
-            res.send('Error in finding record!');
-        }    
-        else
-        {
-            // console.log(data);
-            len = data.length;
-            if (len > 0)
-
-                res.send("You have already signed up.");
-            else
-            {
-                newSignup.save(function(error,SignupData){
-                    if (error)
-                    {
-                        console.log(error);
-                        res.status(500);
-                        res.send('Error in saving signup details');          
-                    }  
-                    else
-                    {
-						// console.log(SignupData);
-                        res.status(200);
-                        //res.json(data);
-                        // res.send('Signup successful!');
-						console.log('Signup successful!');
-						// res.sendFile(path.join(__dirname, '../../views/user.html'));
-						res.render('user', { username: SignupData.name })
-                    }
-                    mongoose.connection.close();
-                });                                 
-            } 
-        }
-    });    
+router.get('/logout', (req, res) => {
+	req.logout();
+	res.redirect('/login');
 });
 
 module.exports=router;
