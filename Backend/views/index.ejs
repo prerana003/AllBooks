@@ -22,9 +22,12 @@
             </div>
             <nav>
                 <ul class="nav-links">
-                    <li><a class="nav-link" href="/login">Login</a></li>
-                    <li><a class="nav-link" href="/signup">Sign Up</a></li>
-                    <li><a class="nav-link" href="/logout">Log Out</a></li>
+					<% if(!currentUser){ %>
+						<li><a class="nav-link" href="/login">Login</a></li>
+						<li><a class="nav-link" href="/signup">Sign Up</a></li>
+					<% } else { %>
+                    	<li><a class="nav-link" href="/logout">Log Out</a></li>
+					<% } %>
                 </ul>
             </nav>
         </header>

@@ -20,9 +20,12 @@
             </div>
             <nav>
                 <ul class="nav-links">
-                    <li><a class="nav-link" href="/login">Login</a></li>
-                    <li><a class="nav-link" href="/signup">Sign Up</a></li>
-                    <li><a class="nav-link" href="/logout">Log Out</a></li>
+					<% if(!currentUser){ %>
+						<li><a class="nav-link" href="/login">Login</a></li>
+						<li><a class="nav-link" href="/signup">Sign Up</a></li>
+					<% } else { %>
+                    	<li><a class="nav-link" href="/logout">Log Out</a></li>
+					<% } %>
                 </ul>
             </nav>
         </header>
@@ -31,11 +34,11 @@
 
   <div class="container">
     <form action="/api/login" method="POST">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <label for="username"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="username" required>
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <label for="password"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
           
       <button type="submit">Login</button>
       <label>

@@ -21,9 +21,12 @@
             </div>
             <nav>
                 <ul class="nav-links">
-                    <li><a class="nav-link" href="/login">Login</a></li>
-                    <li><a class="nav-link" href="/signup">Sign Up</a></li>
-                    <li><a class="nav-link" href="/logout">Log Out</a></li>
+					<% if(!currentUser){ %>
+						<li><a class="nav-link" href="/login">Login</a></li>
+						<li><a class="nav-link" href="/signup">Sign Up</a></li>
+					<% } else { %>
+                    	<li><a class="nav-link" href="/logout">Log Out</a></li>
+					<% } %>
                 </ul>
             </nav>
         </header>
@@ -33,8 +36,8 @@
   <div class="container">
 
     <form action="/api/signup" method="POST">
-      <label class="form__required" for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <label class="form__required" for="username"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="username" required>
 
       <label class="form__required" for="email"><b>Email</b></label>
       <input type="email" placeholder="Enter Email-ID" name="email" required>
@@ -42,8 +45,8 @@
       <label for="dob"><b>Date of Birth</b></label>
       <input type="date" placeholder="" name="dob">
 
-      <label class="form__required" for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <label class="form__required" for="password"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
           
       <button type="submit">Sign Up</button>
     </form>

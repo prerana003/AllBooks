@@ -15,6 +15,7 @@
     "csvtojson": "^2.0.10",
     "ejs": "^3.1.5",
     "express": "4.17.1",
+    "express-session": "^1.17.1",
     "latest": "^0.2.0",
     "mongoose": "5.9.21",
     "passport": "^0.4.1",
