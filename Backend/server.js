@@ -45,6 +45,11 @@ app.get('/signup',(req,res) => {
 	res.render('reg');
 });
 
+app.get('/logout', (req, res) => {
+	req.logout();
+	res.redirect('/');
+})
+
 app.get('*',(req,res) => {
 	res.send("You're in unchartered territory!");
 }); 
