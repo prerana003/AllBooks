@@ -4,6 +4,7 @@ const path=require('path');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 
+const { isLoggedIn } = require('./middleware');
 const loginUser = require('./server/models/loginSchema');
 const api = require('./server/routes/api');
 
@@ -47,7 +48,7 @@ app.get('/',(req,res) => {
 	res.render('index');
 });
 
-app.get('/user', (req, res) => {
+app.get('/user', isLoggedIn, (req, res) => {
 	res.render('user');
 })
 
@@ -65,10 +66,6 @@ app.get('/logout', (req, res) => {
 	req.logout();
 	res.redirect('/');
 });
-
-// app.get('/user', (req, res) => {
-// 	res.render('user', {username: req.user});
-// });
 
 app.get('*',(req,res) => {
 	res.send("You're in unchartered territory!");

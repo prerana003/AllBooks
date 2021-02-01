@@ -18,8 +18,8 @@
     <body>
         <header>
             <div class="logo-cont">
-                <img src="/imgs/open-book.png" alt="logo">
-                <h4 class="logo">AllBooks</h4>
+                <img src="/imgs/open-book.png" alt="logo" onclick="window.location = '/'">
+                <h4 class="logo" onclick="window.location = '/'">AllBooks</h4>
             </div>
             <nav>
                 <ul class="nav-links">
@@ -28,6 +28,12 @@
 						<li><a class="nav-link" href="/signup">Sign Up</a></li>
 					<% } else { %>
                     	<li><a class="nav-link" href="/logout">Log Out</a></li>
+						<li style="cursor: pointer">
+							<img src="/imgs/userlogo.png" alt="logo" 
+								 onclick="window.location = '/user'"
+								 class="user-logo">
+							<a class="nav-link" href="/user"><%= currentUser.name %></a>
+						</li>
 					<% } %>
                 </ul>
             </nav>

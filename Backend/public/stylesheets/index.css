@@ -6,7 +6,8 @@
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
-	background: linear-gradient(white 25%, #c7dffa 75%, rgba(0, 0, 0, 0.2));
+	/* background: linear-gradient(white 25%, #c7dffa 75%, rgba(0, 0, 0, 0.2)); */
+	background: url('/imgs/index-bg.svg') center/cover; 
 }
 
 button {
@@ -68,6 +69,11 @@ nav {
     cursor: pointer;
 }
 
+.user-logo {
+	width: 20px;
+	vertical-align: text-bottom;
+}
+
 .presentation {
     display: flex;
     width: 90%;
@@ -99,7 +105,7 @@ nav {
 
 .cover {
     flex: 1;
-	margin-top: 5.5%;
+	margin-top: 5.25%;
 }
 
 .cover img {
@@ -126,6 +132,27 @@ nav {
 .act-select:hover,
 .act-select:active {
     background: #2626d3;
+}
+
+.ad-banner {
+	width: 90%;
+	margin: 2% auto;
+	/* background: url(/imgs/ad-bg.gif) cover; */
+	background: linear-gradient(45deg, #6f08e4, #4744f1);
+	color: white;
+	text-align: center;
+	cursor: pointer;
+	position: relative;
+}
+
+.ad__header {
+	font-size: 130px;
+	font-weight: 700;
+}
+
+.ad__subheader {
+	font-size: 45px;
+	padding-bottom: 2.5%;
 }
 
 footer {
