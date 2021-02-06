@@ -137,12 +137,10 @@ nav {
 .ad-banner {
 	width: 90%;
 	margin: 2% auto;
-	/* background: url(/imgs/ad-bg.gif) cover; */
-	background: linear-gradient(45deg, #6f08e4, #4744f1);
+	background: url('/imgs/ad-bg.gif') center/cover;
 	color: white;
 	text-align: center;
 	cursor: pointer;
-	position: relative;
 }
 
 .ad__header {
