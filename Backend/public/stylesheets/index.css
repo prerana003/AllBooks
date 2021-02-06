@@ -135,6 +135,8 @@ nav {
 }
 
 .ad-banner {
+	display: block;
+	text-decoration: none;
 	width: 90%;
 	margin: 2% auto;
 	background: url('/imgs/ad-bg.gif') center/cover;

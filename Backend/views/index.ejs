@@ -29,7 +29,7 @@
 						<li><a class="nav-link" href="/signup">Sign Up</a></li>
 					<% } else { %>
                     	<li><a class="nav-link" href="/logout">Log Out</a></li>
-						<li>
+						<li style="cursor: pointer">
 							<img src="/imgs/userlogo.png" alt="logo" 
 								 onclick="window.location = '/user'"
 								 class="user-logo">
@@ -59,10 +59,11 @@
                 
             </section>
 			
-			<section class="ad-banner animate__animated animate__pulse animate__infinite animate__slow"
-					 onclick="window.location = '/'">
-				<div class="ad__header">90% OFF</div>
-				<div class="ad__subheader">the entire lot!</div>
+			<section>
+				<a href="/" class="ad-banner animate__animated animate__pulse animate__infinite animate__slow">
+					<div class="ad__header">90% OFF</div>
+					<div class="ad__subheader">the entire lot!</div>
+				</a>
 			</section>
         </main>
 		
