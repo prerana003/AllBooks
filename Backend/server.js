@@ -48,9 +48,13 @@ app.get('/',(req,res) => {
 	res.render('index');
 });
 
+app.get('/search', (req, res) => {
+	res.render('search');
+});
+
 app.get('/user', isLoggedIn, (req, res) => {
 	res.render('user');
-})
+});
 
 app.use('/api',api);
 

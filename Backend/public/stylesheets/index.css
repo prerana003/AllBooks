@@ -132,6 +132,7 @@ nav {
 .act-select:hover,
 .act-select:active {
     background: #2626d3;
+	transform: scale(1.02);
 }
 
 .ad-banner {

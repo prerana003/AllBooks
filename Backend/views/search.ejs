@@ -11,8 +11,11 @@
          rel="stylesheet">
 		<link rel="stylesheet" 
 			  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 
         <link rel="stylesheet" href="/stylesheets/index.css">
+        <link rel="stylesheet" href="/stylesheets/search.css">
 
 		<link rel="shortcut icon" href="/imgs/favicon.png">
         <title>AllBooks</title>
@@ -20,8 +23,8 @@
     <body>
         <header>
             <div class="logo-cont">
-                <img src="/imgs/open-book.png" alt="logo">
-                <h4 class="logo">AllBooks</h4>
+                <img src="/imgs/open-book.png" alt="logo" onclick="window.location = '/'">
+                <h4 class="logo" onclick="window.location = '/'">AllBooks</h4>
             </div>
             <nav>
                 <ul class="nav-links">
@@ -42,33 +45,13 @@
         </header>
 
         <main>
-            <section class="presentation">
-                
-                <div class="cover">
-                    <img src="/imgs/cover-image.jpg" alt="coverImage">
-                </div>
-
-                <div class="intro">
-                    <div class="intro-text">
-                        <h1>'All Books' You Wanted...</h1>
-                        <p>Search and Find your Favourite past-time</p>
-                    </div>
-                    <div class="act">
-                        <button class="act-select" 
-								onclick="window.location = '/search'">
-							Explore
-						</button>
-                    </div>
-                </div>
-                
-            </section>
-			
-			<section>
-				<a href="/" class="ad-banner animate__animated animate__pulse animate__infinite animate__slow">
-					<div class="ad__header">90% OFF</div>
-					<div class="ad__subheader">the entire lot!</div>
-				</a>
-			</section>
+			<form class="search-box">
+				<input type="text" class="search__txt" placeholder="Type to search" 
+					   name="book_name">
+				<button type="submit" class="search__btn">
+					<i class="fas fa-search"></i>
+				</button>
+			</form>
         </main>
 		
 		<footer>
