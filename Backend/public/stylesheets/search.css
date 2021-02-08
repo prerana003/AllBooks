@@ -1,6 +1,5 @@
 main {
 	margin: 10%;
-	padding: 12%;
 }
 
 .search-box {
@@ -18,11 +17,12 @@ main {
 	outline: none;
 	float: left;
 	margin: 5px;
-	padding: 10px;
+	padding: 16px;
 	color: #535c68;
 	height: 40px;
 	width: 40vw;
-	font-size: 14px;
+	font-size: 16px;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 .search__btn {
@@ -37,6 +37,7 @@ main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	transition: 0.25s;
 }
 
 .search__btn:hover,
@@ -44,6 +45,63 @@ main {
 	cursor: pointer;
 	background: #535c68;
 	color: whitesmoke;
+}
+
+.container {
+	width: 100%;
+	margin-top: 18%;
+}
+
+.row {
+	display: flex;
+  	justify-content: space-between;
+  	flex-wrap: wrap;
+}
+
+.book {
+	/* width: 25%; */
+	flex: 0 1 21%;
+	background: rgba(255,255,255,0.5);
+	border-radius: 5px;
+	margin-bottom: 20px;
+	padding: 10px 0;
+	transition: 0.3s;
+}
+
+.book:hover,
+.book:after {
+	transform: scale(1.02);
+	box-shadow: 0 0 40px -10px rgba(0,0,0,0.4);
+}
+
+.book__image {
+	display: block;
+	width: 60%;
+	margin: 5px auto;
+}
+
+.book__name {
+	text-align: center;
+	padding: 5px;
+	cursor: default;
+}
+
+.add__btn {
+	display: block;
+	text-decoration: none;
+	color: white;
+	background: red;
+	text-align: center;
+	margin: 5px 20px;
+	padding: 5px 0;
+	border-radius: 3px;
+	transition: 0.3s;
+}
+
+.add__btn:hover,
+.add__btn:after {
+	transform: scale(1.1);
+	box-shadow: 0 0 40px -10px rgba(0,0,0,0.4);
 }
 
 footer {

@@ -1,8 +1,83 @@
 body {
-	background: whitesmoke;
+	background: #dff9fb;
 }
 
 main {
-	margin: 10%;
-	padding: 10%;
+	margin: 8%;
+	padding: 3%;
+}
+
+.heading {
+	padding-left: 5%;
+}
+
+.cart {
+	background: #7efff5;
+	border-radius: 5px;
+	box-shadow: 0 0 40px -10px rgba(0,0,0,0.4);
+	width: 100%;
+	margin-top: 10%;
+	padding: 0 3%;
+}
+
+.cart__header {
+	margin: 3% 0;
+	padding-top: 2.5%;
+	font-weight: 300;
+}
+
+.row {
+	display: flex;
+  	justify-content: space-between;
+  	flex-wrap: wrap;
+}
+
+.book {
+	/* width: 25%; */
+	flex: 0 1 21%;
+	background: rgba(255,255,255,0.5);
+	border-radius: 5px;
+	margin-bottom: 20px;
+	padding: 10px 0;
+	transition: 0.3s;
+}
+
+.book:hover,
+.book:after {
+	transform: scale(1.02);
+	box-shadow: 0 0 40px -10px rgba(0,0,0,0.4);
+}
+
+.book__image {
+	display: block;
+	width: 60%;
+	margin: 5px auto;
+}
+
+.book__name {
+	text-align: center;
+	padding: 5px;
+	cursor: default;
+}
+
+.add__btn {
+	display: block;
+	text-decoration: none;
+	color: white;
+	background: red;
+	text-align: center;
+	margin: 5px 35px;
+	padding: 5px 0;
+	border-radius: 3px;
+	transition: 0.3s;
+}
+
+.add__btn:hover,
+.add__btn:after {
+	transform: scale(1.1);
+	box-shadow: 0 0 40px -10px rgba(0,0,0,0.4);
+}
+
+footer {
+	width: 100%;
 }

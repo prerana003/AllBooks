@@ -54,6 +54,7 @@ nav {
 	color: rgba(0, 0, 0, 0.75);
     font-size: 19px;
     text-decoration: none;
+	transition: 0.3s;
 }
 
 .nav-link:hover,
