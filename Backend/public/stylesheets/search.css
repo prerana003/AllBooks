@@ -52,7 +52,12 @@ main {
 	margin-top: 18%;
 }
 
+.row__header {
+	text-align: center;
+}
+
 .row {
+	margin-top: 3%;
 	display: flex;
   	justify-content: space-between;
   	flex-wrap: wrap;
@@ -86,16 +91,23 @@ main {
 	cursor: default;
 }
 
+.add__form {
+	text-align: center;
+}
+
 .add__btn {
-	display: block;
+	border: none;
 	text-decoration: none;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 16px;
 	color: white;
 	background: red;
 	text-align: center;
-	margin: 5px 20px;
-	padding: 5px 0;
+	margin: 5px auto;
+	padding: 5px 40px;
 	border-radius: 3px;
 	transition: 0.3s;
+	cursor: pointer;
 }
 
 .add__btn:hover,

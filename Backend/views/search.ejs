@@ -54,42 +54,17 @@
 			</form>
 			
 			<section class="container">
+				<h2 class="row__header">TODAY'S SPECIALS</h2>
 				<div class="row">
+					<% books.forEach((b) => { %>
 					<div class="book">
 						<img src="/imgs/book-image.jpg" class="book__image">
-						<h4 class="book__name">Book Title</h4>
-						<a href="#" class="add__btn">Add To Cart</a>
+						<h4 class="book__name"><%= b.title %></h4>
+						<form action="/user/add/<%= b._id %>" method="POST" class="add__form">
+							<input class="add__btn" type="submit" value="Rs. <%= b.price %>">
+						</form>
 					</div>
-					<div class="book">
-						<img src="/imgs/book-image.jpg" class="book__image">
-						<h4 class="book__name">Book Title</h4>
-						<a href="#" class="add__btn">Add To Cart</a>
-					</div>
-					<div class="book">
-						<img src="/imgs/book-image.jpg" class="book__image">
-						<h4 class="book__name">Book Title</h4>
-						<a href="#" class="add__btn">Add To Cart</a>
-					</div>
-					<div class="book">
-						<img src="/imgs/book-image.jpg" class="book__image">
-						<h4 class="book__name">Book Title</h4>
-						<a href="#" class="add__btn">Add To Cart</a>
-					</div>
-					<div class="book">
-						<img src="/imgs/book-image.jpg" class="book__image">
-						<h4 class="book__name">Book Title</h4>
-						<a href="#" class="add__btn">Add To Cart</a>
-					</div>
-					<div class="book">
-						<img src="/imgs/book-image.jpg" class="book__image">
-						<h4 class="book__name">Book Title</h4>
-						<a href="#" class="add__btn">Add To Cart</a>
-					</div>
-					<div class="book">
-						<img src="/imgs/book-image.jpg" class="book__image">
-						<h4 class="book__name">Book Title</h4>
-						<a href="#" class="add__btn">Add To Cart</a>
-					</div>
+					<% }) %>
 				</div>
 			</section>
         </main>
@@ -100,5 +75,6 @@
 				<li class="footer__link"><a href="#">Contacts</a></li>
 			</ul>
 		</footer>
+		
     </body>
 </html>

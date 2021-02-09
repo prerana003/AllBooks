@@ -6,6 +6,7 @@ const LocalStrategy = require('passport-local');
 
 const { isLoggedIn } = require('./middleware');
 const loginUser = require('./server/models/loginSchema');
+const books = require('./server/models/bookSchema');
 const api = require('./server/routes/api');
 
 const port = 4000;
@@ -44,16 +45,43 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.get('/',(req,res) => {
+app.get('/', (req,res) => {
 	res.render('index');
 });
 
 app.get('/search', (req, res) => {
-	res.render('search');
+	books.find({}, (err, buks) => {
+		if(err){
+			console.log(err)
+		}
+		else{
+			res.render('search', { books : buks });
+		}
+	})
 });
 
-app.get('/user', isLoggedIn, (req, res) => {
-	res.render('user');
+app.get('/user', isLoggedIn, async (req, res) => {
+	try {
+		let user = await loginUser.findById(req.user._id).populate('cart');
+		res.render('user', { cart : user.cart });
+		
+	} catch (err) {
+		console.log(err);
+	}
+});
+
+app.post('/user/add/:id', isLoggedIn, async (req, res) => {
+	try{
+		let user = await loginUser.findById(req.user._id);
+		let boi = await books.findById(req.params.id);
+		user.cart.push(boi);
+		user.save();
+		// console.log(user);
+	}
+	catch (err) {
+		console.log(err);
+	}
+	res.redirect('/user');
 });
 
 app.use('/api',api);

@@ -7,6 +7,12 @@ const loginschema = new mongoose.Schema({
     password : String,
     dob: Date,
     //gender: String
+	cart: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Book'
+		}
+	]
 });
 
 loginschema.plugin(passportLocalMongoose, { usernameField: 'name', passwordField: 'password' });

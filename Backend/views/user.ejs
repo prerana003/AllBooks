@@ -47,52 +47,28 @@
 			<h3 class="heading">Welcome to your personalised account</h3>
 			
 			<section class="cart">
+				<% if(cart.length !== 0){ %>
 				<h3 class="cart__header">Your cart contains...</h3>
 				<div class="row">
+					<% cart.forEach((b) => { %>
 					<div class="book">
 						<img src="/imgs/book-image.jpg" class="book__image">
-						<h4 class="book__name">Book Title</h4>
-						<a href="#" class="add__btn">Remove</a>
+						<h4 class="book__name"><%= b.title %></h4>
+						<a href="#" class="add__btn">Rs. <%= b.price %></a>
 					</div>
-					<div class="book">
-						<img src="/imgs/book-image.jpg" class="book__image">
-						<h4 class="book__name">Book Title</h4>
-						<a href="#" class="add__btn">Remove</a>
-					</div>
-					<div class="book">
-						<img src="/imgs/book-image.jpg" class="book__image">
-						<h4 class="book__name">Book Title</h4>
-						<a href="#" class="add__btn">Remove</a>
-					</div>
-					<div class="book">
-						<img src="/imgs/book-image.jpg" class="book__image">
-						<h4 class="book__name">Book Title</h4>
-						<a href="#" class="add__btn">Remove</a>
-					</div>
-					<div class="book">
-						<img src="/imgs/book-image.jpg" class="book__image">
-						<h4 class="book__name">Book Title</h4>
-						<a href="#" class="add__btn">Remove</a>
-					</div>
-					<div class="book">
-						<img src="/imgs/book-image.jpg" class="book__image">
-						<h4 class="book__name">Book Title</h4>
-						<a href="#" class="add__btn">Remove</a>
-					</div>
-					<div class="book">
-						<img src="/imgs/book-image.jpg" class="book__image">
-						<h4 class="book__name">Book Title</h4>
-						<a href="#" class="add__btn">Remove</a>
-					</div>
+					<% }) %>
 				</div>
+				<% } else { %>
+				<h3 class="cart__header empty">Your cart is empty!</h3>
+				<% } %>
 			</section>
 		</main>
 			
-		<footer>
+		<!-- <footer>
 			<ul class="footer__links">
 				<li class="footer__link"><a href="#">About Us</a></li>
 				<li class="footer__link"><a href="#">Contacts</a></li>
 			</ul>
-		</footer>
+		</footer> -->
     </body>
 </html>
