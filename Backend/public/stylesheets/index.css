@@ -89,6 +89,7 @@ nav {
     top: 60%;
     left: 55%;
     transform: translate(-5%, -50%);
+	cursor: default;
 }
 
 .intro-text h1 {
@@ -128,6 +129,7 @@ nav {
     font-size: 16px;
     cursor: pointer;
     margin-top: 15px;
+	transition: 0.2s;
 }
 
 .act-select:hover,

@@ -49,17 +49,25 @@
 			<section class="cart">
 				<% if(cart.length !== 0){ %>
 				<h3 class="cart__header">Your cart contains...</h3>
+				<a class="explore-btn" href="/search">Add More</a>
 				<div class="row">
 					<% cart.forEach((b) => { %>
 					<div class="book">
 						<img src="/imgs/book-image.jpg" class="book__image">
 						<h4 class="book__name"><%= b.title %></h4>
-						<a href="#" class="add__btn">Rs. <%= b.price %></a>
+						<form action="/user/<%= b._id %>?_method=DELETE" 
+							  method="POST" 
+							  class="add__form"
+							  target="hidden">
+							<input class="add__btn" type="submit" value="&#8377; <%= b.price %>">
+						</form>
+						<iframe style="display: none" name="hidden"></iframe>
 					</div>
 					<% }) %>
 				</div>
 				<% } else { %>
 				<h3 class="cart__header empty">Your cart is empty!</h3>
+				<a class="explore-btn" href="/search">Explore</a>
 				<% } %>
 			</section>
 		</main>
@@ -70,5 +78,23 @@
 				<li class="footer__link"><a href="#">Contacts</a></li>
 			</ul>
 		</footer> -->
+		<script>
+			let cartBooks = document.querySelectorAll(".book").length;
+			let remBtns = document.querySelectorAll(".add__btn");
+			let header = document.querySelector(".cart__header");
+			let expBtn = document.querySelector(".explore-btn");
+			remBtns.forEach((r) => {
+				r.addEventListener('click', () => {
+					let book = r.parentElement.parentElement;
+					book.style.display = 'none';
+					cartBooks = cartBooks - 1;
+					if(cartBooks == 0){
+						header.textContent = 'Your cart is empty!';
+						expBtn.textContent = 'Explore';
+						header.style.paddingBottom = '1%';
+					}
+				});
+			});
+		</script>
     </body>
 </html>

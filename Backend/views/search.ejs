@@ -37,7 +37,10 @@
 							<img src="/imgs/userlogo.png" alt="logo" 
 								 onclick="window.location = '/user'"
 								 class="user-logo">
-							<a class="nav-link" href="/user"><%= currentUser.name %></a>
+							<a class="nav-link" href="/user">
+								<%= currentUser.name %>
+								<span id="cart">(<%= currentUser.cart.length %>)</span>
+							</a>
 						</li>
 					<% } %>
                 </ul>
@@ -60,9 +63,18 @@
 					<div class="book">
 						<img src="/imgs/book-image.jpg" class="book__image">
 						<h4 class="book__name"><%= b.title %></h4>
-						<form action="/user/add/<%= b._id %>" method="POST" class="add__form">
-							<input class="add__btn" type="submit" value="Rs. <%= b.price %>">
+						<form action="/user/add/<%= b._id %>" 
+							  method="POST" 
+							  class="add__form">
+							<% if(currentUser && currentUser.cart.includes(b._id)) { %>
+							<input class="add__btn" style="background: green" 
+								   type="submit" value="Added" disabled>
+							<% } else { %>
+							<input class="add__btn" type="submit" value="&#8377; <%= b.price %>">
+							<% } %>
+
 						</form>
+						<iframe style="display: none" name="hidden"></iframe>
 					</div>
 					<% }) %>
 				</div>
@@ -76,5 +88,23 @@
 			</ul>
 		</footer>
 		
+		<script>
+			let addBtns = document.querySelectorAll(".add__btn");
+			let navTxt = document.querySelector(".nav-link").textContent;
+			let cart = document.querySelector("#cart");
+			addBtns.forEach((btn) => {
+				btn.addEventListener('click', (b) => {
+					if (navTxt === "Log Out"){
+						btn.parentElement.setAttribute("target", "hidden");
+						btn.setAttribute("value", "Added");
+						setTimeout(() => {
+							btn.setAttribute("disabled", true);
+							cart.textContent = "(" + (Number(cart.textContent[1]) + 1) + ")";
+						}, 50);
+						btn.style.background = 'green';
+					}
+				})
+			})
+		</script>
     </body>
 </html>

@@ -3,11 +3,13 @@ const bodyParser=require('body-parser');
 const path=require('path');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
+const methodOverride = require('method-override');
 
 const { isLoggedIn } = require('./middleware');
 const loginUser = require('./server/models/loginSchema');
 const books = require('./server/models/bookSchema');
 const api = require('./server/routes/api');
+const userApi = require('./server/routes/user');
 
 const port = 4000;
 
@@ -20,6 +22,7 @@ app.listen(port,function(){
 
 app.use(bodyParser.urlencoded({extended: true})); //parses the text as url encoded data
 app.use(bodyParser.json()); //parses the text as json
+app.use(methodOverride('_method'));
 
 app.set('view engine', 'ejs'); //setup to make express find .ejs files
 
@@ -60,29 +63,7 @@ app.get('/search', (req, res) => {
 	})
 });
 
-app.get('/user', isLoggedIn, async (req, res) => {
-	try {
-		let user = await loginUser.findById(req.user._id).populate('cart');
-		res.render('user', { cart : user.cart });
-		
-	} catch (err) {
-		console.log(err);
-	}
-});
-
-app.post('/user/add/:id', isLoggedIn, async (req, res) => {
-	try{
-		let user = await loginUser.findById(req.user._id);
-		let boi = await books.findById(req.params.id);
-		user.cart.push(boi);
-		user.save();
-		// console.log(user);
-	}
-	catch (err) {
-		console.log(err);
-	}
-	res.redirect('/user');
-});
+app.use('/user', userApi);
 
 app.use('/api',api);
 

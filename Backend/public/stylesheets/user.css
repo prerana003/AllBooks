@@ -9,6 +9,7 @@ main {
 
 .heading {
 	padding-left: 10%;
+	cursor: default;
 }
 
 .cart {
@@ -21,18 +22,40 @@ main {
 }
 
 .cart__header {
-	margin: 3% 0;
-	padding-top: 2.5%;
+	display: inline-block;
+	margin-bottom: 1.5%;
+	padding-top: 2%;
 	font-weight: 300;
+	cursor: default;
+}
+
+.explore-btn {
+	display: inline-block;
+	text-decoration: none;
+	float: right;
+	margin-top: 2%;
+	font-size: 16px;
+	font-weight: 700;
+	background: #12CBC4;
+	color: white;
+	padding: 3.5px 7px;
+	border-radius: 3px;
+	transition: 0.2s;
+}
+
+.explore-btn:hover,
+.explore-btn:active {
+	transform: scale(1.02);
+	color: black;
 }
 
 .empty {
-	padding-bottom: 2.5%;
+	padding-bottom: 1%;
 }
 
 .row {
 	display: flex;
-  	justify-content: space-between;
+  	justify-content: space-around;
   	flex-wrap: wrap;
 }
 
@@ -64,16 +87,23 @@ main {
 	cursor: default;
 }
 
+.add__form {
+	text-align: center;
+}
+
 .add__btn {
-	display: block;
+	border: none;
 	text-decoration: none;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 16px;
 	color: white;
 	background: red;
 	text-align: center;
-	margin: 5px 35px;
-	padding: 5px 0;
+	margin: 5px auto;
+	padding: 5px 40px;
 	border-radius: 3px;
 	transition: 0.3s;
+	cursor: pointer;
 }
 
 .add__btn:hover,
