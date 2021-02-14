@@ -25,6 +25,30 @@ main {
 	font-family: 'Source Sans Pro', sans-serif;
 }
 
+.search__list {
+	display: none;
+	background: white;
+	position: absolute;
+	top: 24%;
+	left: 30%;
+	list-style: none;
+	width: 38%;
+}
+
+.search__each {
+	background: whitesmoke;
+	color: black;
+	width: 100%;
+	padding: 5px 10px;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.search__each:hover,
+.search__each:active {
+	background: #ccc;
+}
+
 .search__btn {
 	border: none;
 	border-left: 0.5px solid #535c68;
@@ -100,6 +124,7 @@ main {
 	text-decoration: none;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 16px;
+	width: 70%;
 	color: white;
 	background: red;
 	text-align: center;

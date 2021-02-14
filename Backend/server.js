@@ -63,6 +63,37 @@ app.get('/search', (req, res) => {
 	})
 });
 
+app.get('/search/book_name/:title', (req, res) => {
+	console.log(req.params.title);
+	books.find({ title: { $regex: '^'+req.params.title, $options: 'i' } }, (err, founds) => {
+		// console.log(founds);
+		if(err){
+			console.log(err);
+		}
+		else{
+			res.render('search', { books : founds });
+		}
+	})
+});
+
+app.post('/search', async (req, res) => {
+	// console.log(req.body.q);
+	let query = req.body.q;
+	let matches = undefined;
+	// res.json({ a: "Reached backend!!" });
+	try{
+		if(req.body.q === ""){
+			matches = await books.find({}).limit(3);
+		}
+		else {
+			matches = await books.find({ title: { $regex: '^'+req.body.q, $options: 'i' }});
+		}
+		res.json({ list: matches });
+	} catch (err) {
+		console.log(err);
+	}
+});
+
 app.use('/user', userApi);
 
 app.use('/api',api);
@@ -81,5 +112,6 @@ app.get('/logout', (req, res) => {
 });
 
 app.get('*',(req,res) => {
-	res.send("You're in unchartered territory!");
+	// res.send("You're in unchartered territory!");
+	res.redirect('back');
 }); 

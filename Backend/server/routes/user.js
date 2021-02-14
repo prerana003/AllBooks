@@ -19,6 +19,8 @@ router.get('/', isLoggedIn, async (req, res) => {
 router.post('/add/:id', isLoggedIn, async (req, res) => {
 	try{
 		let user = await loginUser.findById(req.user._id);
+		if(user.cart.includes(req.params.id))
+			return;
 		let boi = await books.findById(req.params.id);
 		user.cart.push(boi);
 		user.save();

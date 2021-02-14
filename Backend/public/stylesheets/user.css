@@ -29,6 +29,12 @@ main {
 	cursor: default;
 }
 
+.cart__logo {
+	display: inline-block;
+	width: 2.5%;
+	vertical-align: sub;
+}
+
 .explore-btn {
 	display: inline-block;
 	text-decoration: none;
@@ -45,8 +51,9 @@ main {
 
 .explore-btn:hover,
 .explore-btn:active {
-	transform: scale(1.02);
+	transform: scale(1.25);
 	color: black;
+	font-size: 15px;
 }
 
 .empty {
@@ -96,6 +103,7 @@ main {
 	text-decoration: none;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 16px;
+	width: 70%;
 	color: white;
 	background: red;
 	text-align: center;

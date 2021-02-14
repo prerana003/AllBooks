@@ -59,9 +59,11 @@ nav {
 
 .nav-link:hover,
 .nav-link:active {
-	background: black;
-	color: white;
-	/* padding: 5%; */
+	background: rgba(149, 165, 166, 0.25);
+	color: #2c3e50;
+	padding: 5px 3px;
+	border-radius: 5px;
+	font-size: 17px;
 }
 
 .logo {
@@ -135,7 +137,8 @@ nav {
 .act-select:hover,
 .act-select:active {
     background: #2626d3;
-	transform: scale(1.02);
+	transform: scale(1.1);
+	border-radius: 5px;
 }
 
 .ad-banner {

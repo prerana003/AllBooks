@@ -48,13 +48,14 @@
         </header>
 
         <main>
-			<form class="search-box">
-				<input type="text" class="search__txt" placeholder="Type to search" 
-					   name="book_name">
+			<form class="search-box" method="GET">
+				<input type="text" class="search__txt" placeholder="Type to search">
+				<!-- <input type="searches" class="search-dropdown"> -->
 				<button type="submit" class="search__btn">
 					<i class="fas fa-search"></i>
 				</button>
 			</form>
+			<ul class="search__list"></ul>
 			
 			<section class="container">
 				<h2 class="row__header">TODAY'S SPECIALS</h2>
@@ -70,9 +71,9 @@
 							<input class="add__btn" style="background: green" 
 								   type="submit" value="Added" disabled>
 							<% } else { %>
-							<input class="add__btn" type="submit" value="&#8377; <%= b.price %>">
+							<input class="add__btn" type="submit" 
+								   value="&#8377; <%= b.price %>">
 							<% } %>
-
 						</form>
 						<iframe style="display: none" name="hidden"></iframe>
 					</div>
@@ -88,23 +89,6 @@
 			</ul>
 		</footer>
 		
-		<script>
-			let addBtns = document.querySelectorAll(".add__btn");
-			let navTxt = document.querySelector(".nav-link").textContent;
-			let cart = document.querySelector("#cart");
-			addBtns.forEach((btn) => {
-				btn.addEventListener('click', (b) => {
-					if (navTxt === "Log Out"){
-						btn.parentElement.setAttribute("target", "hidden");
-						btn.setAttribute("value", "Added");
-						setTimeout(() => {
-							btn.setAttribute("disabled", true);
-							cart.textContent = "(" + (Number(cart.textContent[1]) + 1) + ")";
-						}, 50);
-						btn.style.background = 'green';
-					}
-				})
-			})
-		</script>
+		<script src="/scripts/search.js"></script>
     </body>
 </html>
