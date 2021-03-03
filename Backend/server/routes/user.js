@@ -23,6 +23,7 @@ router.post('/add/:id', isLoggedIn, async (req, res) => {
 			return;
 		let boi = await books.findById(req.params.id);
 		user.cart.push(boi);
+		user.cartTotal = user.cartTotal + boi.price;
 		user.save();
 		res.redirect('/user');
 		// console.log(user);
@@ -35,7 +36,9 @@ router.post('/add/:id', isLoggedIn, async (req, res) => {
 router.delete('/:id', isLoggedIn, async (req, res) => {
 	try {
 		let user = await loginUser.findById(req.user._id);
+		let boi = await books.findById(req.params.id);
 		user.cart.splice(user.cart.indexOf(req.params.id), 1);
+		user.cartTotal = user.cartTotal - boi.price;
 		user.save();
 		res.redirect('/user');
 	} catch (err) {

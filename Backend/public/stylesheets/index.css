@@ -16,6 +16,8 @@ button {
 
 header {
     display: flex;
+	align-items: center;
+	justify-content: space-between;
 	position: fixed;
 	top: 0;
 	/* left: 5%; */
@@ -27,12 +29,9 @@ header {
 	background: linear-gradient(white 50%, rgba(255, 255, 255, 0.75));
 }
 
-.logo-cont, .nav-links {
-    display: flex;
-}
-
 .logo-cont {
-    flex: 1;
+	display: flex;
+    /* flex: 1; */
 	margin-left: 2.5%;
 }
 
@@ -40,21 +39,35 @@ header {
     cursor: pointer;
 }
 
+.logo {
+    margin: 5px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
 nav {
-    flex: 1;
+    /* flex: 1; */
+	display: flex;
+	margin-right: 2.5%;
 }
 
 .nav-links {
-    justify-content: space-around;
+	display: flex;
     list-style: none;
 }
 
 .nav-link {
     /* color: #5f5f79; */
-	color: rgba(0, 0, 0, 0.75);
+	margin: 0 2.3rem;
+	/* color: rgba(0, 0, 0, 0.75); */
     font-size: 19px;
-    text-decoration: none;
+    /* text-decoration: none; */
 	transition: 0.3s;
+}
+
+.nav-link a {
+	text-decoration: none;
+	color: rgba(0, 0, 0, 0.75);
 }
 
 .nav-link:hover,
@@ -66,15 +79,9 @@ nav {
 	font-size: 17px;
 }
 
-.logo {
-    margin: 5px;
-    font-weight: 300;
-    cursor: pointer;
-}
-
 .user-logo {
 	width: 20px;
-	vertical-align: text-bottom;
+	vertical-align: sub;
 }
 
 .presentation {
@@ -141,6 +148,10 @@ nav {
 	border-radius: 5px;
 }
 
+.act-select:focus {
+	outline: none;
+}
+
 .ad-banner {
 	display: block;
 	text-decoration: none;
@@ -160,6 +171,43 @@ nav {
 .ad__subheader {
 	font-size: 45px;
 	padding-bottom: 2.5%;
+}
+
+.error-box {
+	position: fixed;
+	top: -15%;
+	left: 37.3%;
+	background: #d63031;
+	color: white;
+	font-size: 17px;
+	text-align: center;
+	width: 25.5%;
+	padding: 0.7rem 0;
+	border-radius: 5px;
+	box-shadow: 0 5px 3px 1px rgba(0,0,0,0.4);
+	cursor: default;
+	animation: slideIn 1s forwards, getOut 10s forwards;
+}
+
+.fade-out {
+	animation: getOut 3s;
+	animation-fill-mode: forwards;
+	animation-delay: 4s;
+}
+
+@keyframes slideIn {
+	100% {
+		top: 88%;
+	}
+}
+
+@keyframes getOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
 }
 
 footer {

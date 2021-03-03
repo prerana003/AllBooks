@@ -12,7 +12,8 @@ const loginschema = new mongoose.Schema({
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'Book'
 		}
-	]
+	],
+	cartTotal: { type: Number, default: 0.0 }
 });
 
 loginschema.plugin(passportLocalMongoose, { usernameField: 'name', passwordField: 'password' });

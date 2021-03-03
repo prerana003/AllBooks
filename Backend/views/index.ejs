@@ -26,15 +26,15 @@
             <nav>
                 <ul class="nav-links">
 					<% if(!currentUser){ %>
-						<li><a class="nav-link" href="/login">Login</a></li>
-						<li><a class="nav-link" href="/signup">Sign Up</a></li>
+						<li class="nav-link"><a href="/login">Login</a></li>
+						<li class="nav-link"><a href="/signup">Sign Up</a></li>
 					<% } else { %>
-                    	<li><a class="nav-link" href="/logout">Log Out</a></li>
-						<li style="cursor: pointer">
+                    	<li class="nav-link"><a href="/logout">Log Out</a></li>
+						<li style="cursor: pointer" class="nav-link">
 							<img src="/imgs/userlogo.png" alt="logo" 
 								 onclick="window.location = '/user'"
 								 class="user-logo">
-							<a class="nav-link" href="/user"><%= currentUser.name %></a>
+							<a href="/user"><%= currentUser.name %></a>
 						</li>
 					<% } %>
                 </ul>
@@ -64,7 +64,7 @@
             </section>
 			
 			<section>
-				<a href="/" class="ad-banner animate__animated animate__pulse animate__infinite animate__slow">
+				<a href="/search" class="ad-banner animate__animated animate__pulse animate__infinite animate__slow">
 					<div class="ad__header">90% OFF</div>
 					<div class="ad__subheader">the entire lot!</div>
 				</a>

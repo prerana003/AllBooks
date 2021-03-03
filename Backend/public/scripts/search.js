@@ -40,6 +40,7 @@ searchTxt.addEventListener('keyup', (e) => {
 		}
 		else{
 			searchList.style.display = 'block';
+			searchList.innerHTML = '';
 			data.list.forEach((d) => {
 				// console.log(d.title);
 				let li = document.createElement("li");

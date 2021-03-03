@@ -4,6 +4,7 @@ const path=require('path');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const methodOverride = require('method-override');
+const flash = require('connect-flash');
 
 const { isLoggedIn } = require('./middleware');
 const loginUser = require('./server/models/loginSchema');
@@ -23,6 +24,7 @@ app.listen(port,function(){
 app.use(bodyParser.urlencoded({extended: true})); //parses the text as url encoded data
 app.use(bodyParser.json()); //parses the text as json
 app.use(methodOverride('_method'));
+app.use(flash());
 
 app.set('view engine', 'ejs'); //setup to make express find .ejs files
 
@@ -45,6 +47,7 @@ passport.deserializeUser(loginUser.deserializeUser());
 app.use((req, res, next) => {
 	// console.log(req.user);
 	res.locals.currentUser = req.user;
+	res.locals.error = req.flash('error');
 	next();
 });
 
@@ -64,7 +67,7 @@ app.get('/search', (req, res) => {
 });
 
 app.get('/search/book_name/:title', (req, res) => {
-	console.log(req.params.title);
+	// console.log(req.params.title);
 	books.find({ title: { $regex: '^'+req.params.title, $options: 'i' } }, (err, founds) => {
 		// console.log(founds);
 		if(err){
@@ -83,14 +86,15 @@ app.post('/search', async (req, res) => {
 	// res.json({ a: "Reached backend!!" });
 	try{
 		if(req.body.q === ""){
-			matches = await books.find({}).limit(3);
+			// matches = await books.find({}).limit(3);
+			return;
 		}
 		else {
 			matches = await books.find({ title: { $regex: '^'+req.body.q, $options: 'i' }});
 		}
 		res.json({ list: matches });
 	} catch (err) {
-		console.log(err);
+		console.log(err, 93);
 	}
 });
 

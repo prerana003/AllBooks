@@ -56,6 +56,10 @@ main {
 	font-size: 15px;
 }
 
+.explore-btn:focus {
+	outline: none;
+}
+
 .empty {
 	padding-bottom: 1%;
 }
@@ -118,6 +122,15 @@ main {
 .add__btn:after {
 	transform: scale(1.1);
 	box-shadow: 0 0 40px -10px rgba(0,0,0,0.4);
+}
+
+.add__btn:focus {
+	outline: none;
+}
+
+.checkout {
+	margin-top: 1%;
+	float: right;
 }
 
 footer {

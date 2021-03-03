@@ -22,10 +22,10 @@
             <nav>
                 <ul class="nav-links">
 					<% if(!currentUser){ %>
-						<li><a class="nav-link" href="/login">Login</a></li>
-						<li><a class="nav-link" href="/signup">Sign Up</a></li>
+						<li class="nav-link"><a href="/login">Login</a></li>
+						<li class="nav-link"><a href="/signup">Sign Up</a></li>
 					<% } else { %>
-                    	<li><a class="nav-link" href="/logout">Log Out</a></li>
+                    	<li class="nav-link"><a href="/logout">Log Out</a></li>
 					<% } %>
                 </ul>
             </nav>
@@ -53,6 +53,12 @@
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
 </form>
-
+	
+	<% if(error && error.length > 0) { %>
+		<div class="error-box">
+			<p>Invalid username or password.</p>
+		</div>
+	<% } %>
+	
 </body>
 </html>
